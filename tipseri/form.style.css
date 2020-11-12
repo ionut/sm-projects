@@ -1,0 +1,51 @@
+    *{
+    box-sizing: border-box;
+}
+
+body{
+    font-size:30px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    margin:0;
+    letter-spacing: 2px;
+    padding:10px;
+}
+
+button{
+    margin-top:20px;
+    font-size: larger;
+    background-color:rgb(0,128,0);
+    color:white;
+    width:100%;
+    border-radius: 6px;
+}
+
+button:hover{
+    background-color: rgb(42, 177, 42);
+}
+
+
+input{
+    margin-bottom: 5px;
+    outline:none;
+    font-size: larger;
+    border-radius:6px;
+
+}
+
+input:valid{
+    border:3px solid green;
+}
+
+
+input:invalid{
+    border:3px solid red;
+}
+
+.message-container{
+    border:3px solid rgb(0,128,0);
+    text-align: center;
+    font-size: large;
+    border-radius:6px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.style.css">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <!--Form-->
+        <form id="form">
+            <div class="form-group">
+                <label for="name">Full name: </label>
+                <input type="text" id="fname" placeholder="Full name" required minlength="3" maxlength="100" name="name">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number: </label>
+                <input type="tel" id="phone" placeholder="0740888888" minlength="10" maxlength="10" required name="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Adress: </label>
+                <input type="email" id="email" placeholder="email@adresss.com" required name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" id="password" placeholder="Create Password(min. 6 char.)" minlength="6" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="please inclue at least one uppercase char, and one number">
+            </div>
+            <div class="form-group">
+                <label for="Confirm">Confirm Password: </label>
+                <input type="password" id="confirm" placeholder="Confirm Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" name="password">
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <!--Succes meesage-->
+        <div class="message-container">
+            <h3 id="message">Try It</h3>
+        </div>
+    </div>
+    <script src="formscript.js"></script>
+</body>
+</html>
