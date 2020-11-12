@@ -60,7 +60,7 @@ function processFormData(event){
     validateForm();
     //2.submit data if valid
     if(isValid&&passwordsMatch){
-        storeFromData();
+        storeFormData();
     }
 
 
