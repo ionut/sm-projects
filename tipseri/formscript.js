@@ -41,7 +41,7 @@ function validateForm(){
 }
 
 //storedata
-function storeFromData(){
+function storeFormData(){
     var user={
         name:form.name.value,
         phone:form.phone.value,
