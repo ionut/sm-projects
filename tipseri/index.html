@@ -1,45 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formstyle.css">
-    <title>Registration</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Register form</h1>
-        <!--Form-->
-        <form id="form">
-            <div class="form-group">
-                <label for="name">Full name: </label>
-                <input type="text" id="fname" placeholder="Full name" required minlength="3" maxlength="100" name="name">
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number: </label>
-                <input type="tel" id="phone" placeholder="0740888888" minlength="10" maxlength="10" required name="phone">
-            </div>
-            <div class="form-group">
-                <label for="email">Email Adress: </label>
-                <input type="email" id="email" placeholder="email@adresss.com" required name="email">
-            </div>
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" id="password" placeholder="Create Password(min. 6 char.)" minlength="6" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="please include at least one uppercase char, and one number">
-                <input type="checkbox" onclick="showPassword()">Show password
-            </div>
-            <div class="form-group">
-                <label for="Confirm">Confirm Password: </label>
-                <input type="password" id="confirm" placeholder="Confirm Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" name="password">
-                <input type="checkbox" onclick="confirmPassword()">Show password
-            </div>
-            <button type="submit">Register</button>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--google library-->
+    <meta name="google-signin-client_id" content="228945350980-h0tm2cljpa6rastln916ivgbdgip97v3.apps.googleusercontent.com">
+    <link rel="stylesheet" href="style.css">
+    <title>Google Auth or Register</title>
+  </head>
+  <body>
+    <div class="register">
+        <!--Google Button-->  
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <!--Register Button--> 
+        <form method="GET" action="form.html">
+              <button class="btn" type="submit"><img src="p.png" width="18px" height="18px"><span>Register</span></button>
         </form>
-        <!--Succes meesage-->
-        <div class="message-container">
-            <h3 id="message">Try It</h3>
-        </div>
+        <a href="#" onclick="signOut();">Sign out</a>
     </div>
-    <script src="formscript.js"></script>
-</body>
+    
+    <script>
+      function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
+        });
+      }
+
+    </script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </body>
 </html>
